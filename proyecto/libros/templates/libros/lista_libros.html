@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Lista de Libros</h1>
+    {% for libro in libros %}
+        <p>nombre: {{libro.nombre}}</p>
+        <p>editorial: {{libro.editorial}}</p>
+    {% endfor %}
+    <button><a href="{% url 'libros:index' %}">Ir a libros</a></button>
+</body>
+</html>
