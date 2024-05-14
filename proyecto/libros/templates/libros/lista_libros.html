@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'core/base.html' %}
+  
+{% block titulo %}
     <h1>Lista de Libros</h1>
+ {% endblock titulo %}
+
+{% block contenido %}
     <form action="{% url 'libros:lista_libros' %}"method="get">
     <input type="text" name="busqueda" placeholder="Buscar...">
     </form>
@@ -17,5 +15,4 @@
         <p>-----</p>
     {% endfor %}
     <button><a href="{% url 'libros:index' %}">Volver a libros</a></button>
-</body>
-</html>
+ {% endblock contenido %}
