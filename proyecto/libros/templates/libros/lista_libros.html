@@ -7,10 +7,15 @@
 </head>
 <body>
     <h1>Lista de Libros</h1>
+    <form action="{% url 'libros:lista_libros' %}"method="get">
+    <input type="text" name="busqueda" placeholder="Buscar...">
+    </form>
     {% for libro in libros %}
-        <p>nombre: {{libro.nombre}}</p>
-        <p>editorial: {{libro.editorial}}</p>
+        <li>{{libro.nombre}}</li>
+        <li>{{libro.autor}}</li>
+        <li> {{libro.editorial}}</li>
+        <p>-----</p>
     {% endfor %}
-    <button><a href="{% url 'libros:index' %}">Ir a libros</a></button>
+    <button><a href="{% url 'libros:index' %}">Volver a libros</a></button>
 </body>
 </html>
