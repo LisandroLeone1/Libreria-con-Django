@@ -4,8 +4,14 @@
     <h1>LIBROS</h1>
  {% endblock titulo %}
 
+ {% block body_title %}
+ App De Libros       
+ {% endblock body_title %}
+
 {% block contenido %}
+<div class="container text-center">
     <button><a href="{% url 'libros:lista_libros' %}">Lista de libros</a></button>
     <button><a href="{% url 'libros:libros_create' %}">Agregar libro</a></button>
     <button><a href="{% url 'core:index' %}">Volver al inicio</a></button>
+</div>
  {% endblock contenido %}

@@ -3,6 +3,10 @@
 {% block titulo %}
     <h1>Lista de Autores</h1>
  {% endblock titulo %}
+ 
+ {% block body_title %}
+        Listado De Autores       
+ {% endblock body_title %}
 
 {% block contenido %}
     <form action="{% url 'libros:lista_autores' %}"method="get">

@@ -4,6 +4,10 @@
     <h1>Lista de Libros</h1>
  {% endblock titulo %}
 
+ {% block body_title %}
+        Listado De libros
+ {% endblock body_title %}
+
 {% block contenido %}
     <form action="{% url 'libros:lista_libros' %}"method="get">
     <input type="text" name="busqueda" placeholder="Buscar...">
