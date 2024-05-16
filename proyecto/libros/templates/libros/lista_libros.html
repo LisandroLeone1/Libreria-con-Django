@@ -14,8 +14,7 @@
     </form>
     {% for libro in libros %}
         <li>{{libro.nombre}}</li>
-        <li>{{libro.autor}}</li>
-        <li> {{libro.editorial}}</li>
+        <a href="{% url 'libros:libro_detail' libro.id %}">Detalle</a>
         <p>-----</p>
     {% endfor %}
     <button><a href="{% url 'libros:index' %}">Volver a libros</a></button>

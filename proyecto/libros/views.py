@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from libros.models import Libro, Autores
 from libros.forms import LibroForms
+from django.views.generic import DetailView
+
 def index(request):
     return render(request,"libros/index.html")
 
@@ -34,4 +36,7 @@ def lista_autores(request):
     contexto = {"autores": consulta}
     return render(request,"libros/lista_autores.html",contexto)
 
+class LibroDetail(DetailView):
+    model = Libro
+ 
 

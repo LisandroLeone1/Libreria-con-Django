@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+  
+{% block titulo %}
+    Lista de Libros
+ {% endblock titulo %}
+
+ {% block body_title %}
+        Detalle Del Libros
+ {% endblock body_title %}
+
+{% block contenido %}
+   <ul>
+    <li>Nombre: {{libro.nombre}}</li>
+    <li>Autor: {{libro.autor}}</li>
+    <li>Editorial: {{libro.editorial}}</li>
+   </ul>
+    <button><a href="{% url 'libros:index' %}">Volver a libros</a></button>
+ {% endblock contenido %}
