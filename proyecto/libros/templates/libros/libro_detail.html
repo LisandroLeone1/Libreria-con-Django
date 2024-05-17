@@ -5,7 +5,7 @@
  {% endblock titulo %}
 
  {% block body_title %}
-        Detalle Del Libros
+        Detalle Del Libro
  {% endblock body_title %}
 
 {% block contenido %}
@@ -14,5 +14,5 @@
     <li>Autor: {{libro.autor}}</li>
     <li>Editorial: {{libro.editorial}}</li>
    </ul>
-    <button><a href="{% url 'libros:index' %}">Volver a libros</a></button>
+    <button><a href="{% url 'libros:lista_libros' %}">Volver</a></button>
  {% endblock contenido %}

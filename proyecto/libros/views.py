@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from libros.models import Libro, Autores
 from libros.forms import LibroForms
-from django.views.generic import DetailView
+from django.views.generic import DetailView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 
 def index(request):
     return render(request,"libros/index.html")
@@ -24,7 +25,7 @@ def libros_create(request):
             return redirect("libros:lista_libros")
     else:
         form = LibroForms()
-    return render(request,"libros/libros_create.html",{"form":form})
+    return render(request,"libros/libro_form.html",{"form":form})
 
 def lista_autores(request):
     busqueda = request.GET.get("busqueda",None)
@@ -38,5 +39,16 @@ def lista_autores(request):
 
 class LibroDetail(DetailView):
     model = Libro
+
+class LibroUpdate(UpdateView):
+    model = Libro
+    form_class = LibroForms
+    success_url = reverse_lazy("libros:lista_libros")
+
+class LibroDelete(DeleteView):
+    model = Libro
+    success_url = reverse_lazy("libros:lista_libros")
+    
+
  
 

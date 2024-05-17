@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %}
+   
+{% block titulo %}
+       Eliminar libro
+ {% endblock titulo %}
+
+ {% block body_title %}
+      Libros - Eliminar Libro
+ {% endblock body_title %}
+
+{% block contenido %}
+   <p class="fs-5"><span style="font-family: 'Georgia', serif;">¿Confirma eliminar "{{ object.nombre }}"?</span></p>
+   <form action="" method="post">
+    {% csrf_token %}
+    <button type="submit">Eliminar</button>
+   </form>
+    <button><a href="{% url 'libros:lista_libros' %}">Volver</a></button>
+ {% endblock contenido %}

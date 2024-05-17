@@ -14,7 +14,11 @@
     </form>
     {% for libro in libros %}
         <li>{{libro.nombre}}</li>
-        <a href="{% url 'libros:libro_detail' libro.id %}">Detalle</a>
+        <a href="{% url 'libros:libro_detail' libro.id %}">Ver Detalle</a>
+        <a href="{% url 'libros:libro_update' libro.id %}"
+         class="btn btn-warning btn-sm">Cambiar</a>
+        <a href="{% url 'libros:libro_delete' libro.id %}"
+        class="btn btn-danger btn-sm">Borrar</a>
         <p>-----</p>
     {% endfor %}
     <button><a href="{% url 'libros:index' %}">Volver a libros</a></button>

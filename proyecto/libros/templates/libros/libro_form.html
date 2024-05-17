@@ -1,11 +1,15 @@
 {% extends 'core/base.html' %}
    
 {% block titulo %}
-    <h1>Agregar libro</h1>
+    Agregar libro
  {% endblock titulo %}
 
  {% block body_title %}
-        Agregar un libro
+      {% if form.instance.pk %}
+      Libro - Editar Libro
+      {% else %}
+      Libro - Agregar Nuevo Libro
+      {% endif %}
  {% endblock body_title %}
 
 {% block contenido %}
@@ -14,5 +18,5 @@
     {{form}}
     <button type="submit">Guardar</button>
    </form>
-    <button><a href="{% url 'libros:index' %}">Volver a libros</a></button>
+    <button><a href="{% url 'libros:lista_libros' %}">Volver</a></button>
  {% endblock contenido %}
