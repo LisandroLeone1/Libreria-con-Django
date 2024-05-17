@@ -13,10 +13,10 @@
         <input type="text" name="busqueda" placeholder="Buscar...">
     </form>
     {% for autor in autores %}
-        <li>{{autor.nombre}}</li>
-        <li>{{autor.nacionalidad}}</li>
-        <li>{{autor.naciomiento}}</li>
-        <p>-----</p>
+        <li class="fs-5 "><span style="font-family: 'Georgia', serif;">{{autor.nombre}}</li>
+        <li class="fs-7 "><span style="font-family: 'Georgia', serif;">Nacionalidad: {{autor.nacionalidad}}</li>
+        <li class="fs-7 "><span style="font-family: 'Georgia', serif;">Fecha de nacimiento: {{autor.naciomiento}}</li>
+        <p>---------------------------</p>
     {% endfor %}
     <button><a href="{% url 'libros:index' %}">Volver a libros</a></button>
  {% endblock contenido %}

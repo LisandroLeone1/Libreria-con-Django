@@ -10,9 +10,9 @@
 
 {% block contenido %}
    <ul>
-    <li>Nombre: {{libro.nombre}}</li>
-    <li>Autor: {{libro.autor}}</li>
-    <li>Editorial: {{libro.editorial}}</li>
+    <li class="fs-5"><span style="font-family: 'Georgia', serif;">{{libro.nombre}}</li>
+    <li class="fs-7"><span style="font-family: 'Georgia', serif;">Autor: {{libro.autor}}</li>
+    <li class="fs-7 "><span style="font-family: 'Georgia', serif;">Editorial: {{libro.editorial}}</li>
    </ul>
     <button><a href="{% url 'libros:lista_libros' %}">Volver</a></button>
  {% endblock contenido %}

@@ -13,7 +13,7 @@
     <input type="text" name="busqueda" placeholder="Buscar...">
     </form>
     {% for libro in libros %}
-        <li>{{libro.nombre}}</li>
+        <li class="fs-5 "><span style="font-family: 'Georgia', serif;">{{libro.nombre}}</li>
         <a href="{% url 'libros:libro_detail' libro.id %}">Ver Detalle</a>
         <a href="{% url 'libros:libro_update' libro.id %}"
          class="btn btn-warning btn-sm">Cambiar</a>
