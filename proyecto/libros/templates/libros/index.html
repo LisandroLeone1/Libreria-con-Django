@@ -10,8 +10,8 @@
 
  {% block contenido %}
  <div class="container text-center">
-     <button class="btn btn-secondary my-button"><a href="{% url 'libros:lista_libros' %}" style="color:black;">Lista de libros</a></button>
-     <button class="btn btn-secondary my-button"><a href="{% url 'libros:libros_create' %}" style="color:black;">Agregar libro</a></button>
-     <button class="btn btn-secondary my-button"><a href="{% url 'core:index' %}" style="color:black;">Volver al inicio</a></button>
- </div>
+    <button class="btn btn-primary my-button"><a href="{% url 'libros:lista_libros' %}" style="color:white;">Lista de libros</a></button>
+    <button class="btn btn-primary my-button"><a href="{% url 'libros:libros_create' %}" style="color:white;">Agregar libro</a></button>
+    <button class="btn btn-primary my-button"><a href="{% url 'core:index' %}" style="color:white;">Volver al inicio</a></button>
+</div>
  {% endblock contenido %}
