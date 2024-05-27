@@ -11,7 +11,7 @@ def lista_libros(request):
     busqueda = request.GET.get("busqueda",None)
     if busqueda:
         print(busqueda)
-        consulta = Libro.objects.filter(nombre__icontains=busqueda)
+        consulta = Libro.objects.filter(nombre_libro__icontains=busqueda)
     else:
         consulta = Libro.objects.all()
     contexto = {"libros": consulta}
@@ -31,7 +31,7 @@ def lista_autores(request):
     busqueda = request.GET.get("busqueda",None)
     if busqueda:
         print(busqueda)
-        consulta = Autores.objects.filter(nombre__icontains=busqueda)
+        consulta = Autores.objects.filter(nombre_autor__icontains=busqueda)
     else:
        consulta = Autores.objects.all()
     contexto = {"autores": consulta}
