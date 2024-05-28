@@ -34,6 +34,7 @@
                             {% csrf_token %}
                             <button type="submit" class="btn btn-dark ">Logout</button>
                         </form>
+                    <li class="nav-item bg-primary"><a class="nav-link" href="#">{{ user.username }}</a></li>
                         
                     {% else %}
                     <li class="nav-item"><a class="nav-link" href="{% url 'core:login' %}">Login</a></li>
