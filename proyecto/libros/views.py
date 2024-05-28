@@ -49,8 +49,6 @@ class LibroDelete(DeleteView):
     model = Libro
     success_url = reverse_lazy("libros:lista_libros")
 
-class AutorDetail(DetailView):
-    model = LibroPorAutor
     
 
  
