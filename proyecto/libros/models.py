@@ -9,7 +9,7 @@ class Editorial(models.Model):
 class Autores(models.Model):
     nombre_autor = models.CharField(max_length=100)
     nacionalidad = models.CharField(max_length=100,null=True,blank=True)
-    naciomiento = models.DateField(null=True,blank=True)
+    nacimiento = models.DateField(null=True,blank=True)
     #libros = models.ManyToManyField(Libro)
 
     def __str__(self)-> str:

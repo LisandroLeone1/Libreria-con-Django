@@ -12,11 +12,34 @@
     <form action="{% url 'libros:lista_autores' %}"method="get">
         <input type="text" name="busqueda" placeholder="Buscar...">
     </form>
-    {% for autor in autores %}
-        <li class="fs-5 "><span style="font-family: 'Georgia', serif;">{{autor.nombre_autor}}</li>
-        <li class="fs-7 "><span style="font-family: 'Georgia', serif;">Nacionalidad: {{autor.nacionalidad}}</li>
-        <li class="fs-7 "><span style="font-family: 'Georgia', serif;">Fecha de nacimiento: {{autor.naciomiento}}</li>
-        <p>---------------------------</p>
-    {% endfor %}
+    <ul class="list-unstyled">
+        {% for autor in autores %}
+          <li class="fs-5 mb-2"><span style="font-family: 'Georgia', serif;">{{ autor.nombre.nombre_autor }}</span></li>
+          <li class="fs-7 mb-2"><span style="font-family: 'Georgia', serif;">Nacionalidad: {{ autor.nombre.nacionalidad }}</span></li>
+          <li class="fs-7 mb-2"><span style="font-family: 'Georgia', serif;">Nacimiento: {{ autor.nombre.nacimiento }}</span></li>
+          <li class="fs-7 mb-2">
+            <button class="btn btn-primary ver-libros-btn" type="button" data-toggle="collapse" data-target="#listaLibros{{ forloop.counter }}">Ver Libros</button>
+          </li>
+          <ul id="listaLibros{{ forloop.counter }}" class="list-unstyled collapse">
+            {% for libro in autor.libros.all %}
+              <li class="fs-7 mb-2"><span style="font-family: 'Georgia', serif;"> - {{ libro.nombre_libro }}</span></li>
+            {% endfor %}
+          </ul>
+        {% endfor %}
+      </ul>
+      
+      <!-- Incluye Bootstrap JS -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      
+      <script>
+        // Opcional: Ajusta el texto del botón "Ver Libros" cuando se muestra u oculta la lista
+        $('.ver-libros-btn').click(function() {
+          $(this).text(function(i, text) {
+            return text === "Ver Libros" ? "Ocultar Libros" : "Ver Libros";
+          });
+        });
+      </script>
     <button><a href="{% url 'libros:index' %}">Volver a libros</a></button>
  {% endblock contenido %}

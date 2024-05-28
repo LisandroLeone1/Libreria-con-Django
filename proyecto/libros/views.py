@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from libros.models import Libro, Autores
+from libros.models import Libro, Autores, LibroPorAutor
 from libros.forms import LibroForms
 from django.views.generic import DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
@@ -31,9 +31,9 @@ def lista_autores(request):
     busqueda = request.GET.get("busqueda",None)
     if busqueda:
         print(busqueda)
-        consulta = Autores.objects.filter(nombre_autor__icontains=busqueda)
+        consulta = LibroPorAutor.objects.filter(nombre__icontains=busqueda)
     else:
-       consulta = Autores.objects.all()
+       consulta = LibroPorAutor.objects.all()
     contexto = {"autores": consulta}
     return render(request,"libros/lista_autores.html",contexto)
 
@@ -48,6 +48,9 @@ class LibroUpdate(UpdateView):
 class LibroDelete(DeleteView):
     model = Libro
     success_url = reverse_lazy("libros:lista_libros")
+
+class AutorDetail(DetailView):
+    model = LibroPorAutor
     
 
  

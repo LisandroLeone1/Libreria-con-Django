@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+  
+{% block titulo %}
+    Lista de Libros
+ {% endblock titulo %}
+
+ {% block body_title %}
+        Libros del autor
+ {% endblock body_title %}
+
+{% block contenido %}
+{% for libro in autor.libros.all  %}
+<li class="fs-7 "><span style="font-family: 'Georgia', serif;">Libros: {{libro.nombre_libro}}</li>
+{% endfor %}
+    <button><a href="{% url 'libros:lista_autores' %}">Volver</a></button>
+ {% endblock contenido %}
