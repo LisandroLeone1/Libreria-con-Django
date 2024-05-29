@@ -13,6 +13,10 @@
     <li class="fs-5"><span style="font-family: 'Georgia', serif;">{{libro.nombre_libro}}</li>
     <li class="fs-7"><span style="font-family: 'Georgia', serif;">Autor: {{libro.autor}}</li>
     <li class="fs-7 "><span style="font-family: 'Georgia', serif;">Editorial: {{libro.editorial}}</li>
+    <li class="fs-7 "><span style="font-family: 'Georgia', serif;">Genero: {{libro.genero}}</li>
+    <li class="fs-7 "><span style="font-family: 'Georgia', serif;">Paginas: {{libro.paginas}}</li>
+    <li class="fs-7 "><span style="font-family: 'Georgia', serif;">Unidades: {{libro.unidades}}</li>
+    <li class="fs-7 "><span style="font-family: 'Georgia', serif;">Precio: ${{libro.precio}}</li>
    </ul>
     <button><a href="{% url 'libros:lista_libros' %}">Volver</a></button>
  {% endblock contenido %}

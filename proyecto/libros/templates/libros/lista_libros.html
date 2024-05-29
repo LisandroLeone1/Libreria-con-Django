@@ -23,17 +23,22 @@
 </div>
 <ul class="list-group">
     {% for libro in libros %}
-        <li class="list-group-item">
-            <div class="d-flex justify-content-between align-items-center">
-                <span style="font-family: 'Georgia', serif; font-size: 1.1em;">{{ libro.nombre_libro }}</span>
+    <li class="list-group-item">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <span style="font-family: 'Georgia', serif; font-size: 1.1em;">{{libro.nombre_libro}}</span>
+            </div>
+            <div class="d-flex align-items-center">
+                <span class="me-3" style="font-family: 'Georgia', serif; font-size: 0.9em;">${{libro.precio}}</span>
                 <div>
                     <a href="{% url 'libros:libro_detail' libro.id %}" class="btn btn-info btn-sm me-2">Ver Detalle</a>
                     <a href="{% url 'libros:libro_update' libro.id %}" class="btn btn-info btn-sm me-2">Cambiar</a>
                     <a href="{% url 'libros:libro_delete' libro.id %}" class="btn btn-secondary btn-sm">Borrar</a>
                 </div>
             </div>
-        </li>
-    {% endfor %}
+        </div>
+    </li>
+{% endfor %}
 </ul>
 <a href="{% url 'libros:lista_libros' %}" class="btn btn-secondary btn-sm mt-3">Volver</a>
 {% endblock contenido %}
