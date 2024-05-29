@@ -31,7 +31,7 @@ def lista_autores(request):
     busqueda = request.GET.get("busqueda",None)
     if busqueda:
         print(busqueda)
-        consulta = LibroPorAutor.objects.filter(nombre__icontains=busqueda)
+        consulta = LibroPorAutor.objects.filter(nombre_autor__icontains=busqueda)
     else:
        consulta = LibroPorAutor.objects.all()
     contexto = {"autores": consulta}
