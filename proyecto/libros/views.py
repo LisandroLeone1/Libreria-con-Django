@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.db.models import Q
 from libros.models import Libro, Autores
 from libros.forms import LibroForms
 from django.views.generic import DetailView, UpdateView, DeleteView
@@ -8,14 +9,13 @@ def index(request):
     return render(request,"libros/index.html")
 
 def lista_libros(request):
-    busqueda = request.GET.get("busqueda",None)
+    busqueda = request.GET.get("busqueda", None)
     if busqueda:
-        print(busqueda)
-        consulta = Libro.objects.filter(nombre_libro__icontains=busqueda)
+        consulta = Libro.objects.filter(Q(nombre_libro__icontains=busqueda) | Q(autor__icontains=busqueda))
     else:
         consulta = Libro.objects.all()
     contexto = {"libros": consulta}
-    return render(request,"libros/lista_libros.html",contexto)
+    return render(request, "libros/lista_libros.html", contexto)
 
 
 def libros_create(request):
