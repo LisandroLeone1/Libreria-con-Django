@@ -2,21 +2,28 @@
   
 {% block titulo %}
     Lista de Libros
- {% endblock titulo %}
+{% endblock titulo %}
 
- {% block body_title %}
-        Detalle Del Libro
- {% endblock body_title %}
+{% block body_title %}
+    Detalle Del Libro
+{% endblock body_title %}
 
 {% block contenido %}
-   <ul>
-    <li class="fs-5"><span style="font-family: 'Georgia', serif;">{{libro.nombre_libro}}</li>
-    <li class="fs-7"><span style="font-family: 'Georgia', serif;">Autor: {{libro.autor}}</li>
-    <li class="fs-7 "><span style="font-family: 'Georgia', serif;">Editorial: {{libro.editorial}}</li>
-    <li class="fs-7 "><span style="font-family: 'Georgia', serif;">Genero: {{libro.genero}}</li>
-    <li class="fs-7 "><span style="font-family: 'Georgia', serif;">Paginas: {{libro.paginas}}</li>
-    <li class="fs-7 "><span style="font-family: 'Georgia', serif;">Unidades: {{libro.unidades}}</li>
-    <li class="fs-7 "><span style="font-family: 'Georgia', serif;">Precio: ${{libro.precio}}</li>
-   </ul>
-    <button><a href="{% url 'libros:lista_libros' %}">Volver</a></button>
- {% endblock contenido %}
+    <div class="container">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <p class="fs-4 mb-0 font-weight-bold">{{libro.nombre_libro}}</p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item fs-6"><span class="font-weight-bold">Autor:</span> {{libro.autor}}</li>
+                    <li class="list-group-item fs-6"><span class="font-weight-bold">Año:</span> {{libro.año}}</li>
+                    <li class="list-group-item fs-6"><span class="font-weight-bold">Editorial:</span> {{libro.editorial}}</li>
+                    <li class="list-group-item fs-6"><span class="font-weight-bold">Género:</span> {{libro.genero}}</li>
+                    <li class="list-group-item fs-6"><span class="font-weight-bold">Páginas:</span> {{libro.paginas}}</li>
+                    <li class="list-group-item fs-6"><span class="font-weight-bold">Unidades:</span> {{libro.unidades}}</li>
+                    <li class="list-group-item fs-6"><span class="font-weight-bold">Precio:</span> ${{libro.precio}}</li>
+                </ul>
+            </li>
+        </ul>
+        <a href="{% url 'libros:lista_libros' %}" class="btn btn-secondary mt-3">Volver</a>
+    </div>
+{% endblock contenido %}

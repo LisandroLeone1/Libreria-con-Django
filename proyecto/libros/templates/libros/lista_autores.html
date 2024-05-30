@@ -9,47 +9,51 @@
 {% endblock body_title %}
 
 {% block contenido %}
-    <form action="{% url 'libros:lista_autores' %}" method="get">
-        <input type="text" name="busqueda" placeholder="Buscar...">
-    </form>
-    <div class="row">
-        {% for autor in autores %}
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ autor.nombre.nombre_autor }}</h5>
-                        <p class="card-text small">Nacionalidad: {{ autor.nombre.nacionalidad }}</p>
-                        <p class="card-text small">Nacimiento: {{ autor.nombre.nacimiento }}</p>
-                        <button class="btn btn-primary ver-libros-btn" type="button" data-toggle="collapse" data-target="#listaLibros{{ forloop.counter }}">Ver Libros</button>
-                        <ul id="listaLibros{{ forloop.counter }}" class="list-unstyled collapse">
-                            {% if autor.libros.all %}
-                            <ul>
-                                {% for libro in autor.libros.all %}
-                                    <li>{{ libro.nombre_libro }}</li>
-                                {% endfor %}
-                            </ul>
-                            {% else %}
-                            <p>No hay libros disponibles para este autor.</p>
-                             {% endif %}
-                        </ul>
-                    </div>
+<form class="mb-3 row" action="{% url 'libros:lista_autores' %}" method="get">
+    <div class="col-auto">
+        <input type="text" class="form-control" name="busqueda" placeholder="Buscar autor...">
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </div>
+</form>
+<div class="row">
+    {% for autor in autores %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body">
+                <p class="fs-4 mb-0 font-weight-bold">{{ autor.nombre_autor }}</p>
+                <p class="card-text small"><strong>Nacionalidad:</strong> {{ autor.nacionalidad }}</p>
+                <p class="card-text small"><strong>Nacimiento:</strong> {{ autor.nacimiento }}</p>
+                <button class="btn btn-primary ver-libros-btn" type="button" data-toggle="collapse" data-target="#listaLibros{{ forloop.counter }}">Ver Libros</button>
+                <div id="listaLibros{{ forloop.counter }}" class="collapse">
+                    <ul class="list-group mt-3">
+                        {% if autor.libros.all %}
+                        {% for libro in autor.libros.all %}
+                        <li class="list-group-item libro">{{ libro.nombre_libro }}</li>
+                        {% endfor %}
+                        {% else %}
+                        <li class="list-group-item">No hay libros disponibles para este autor.</li>
+                        {% endif %}
+                    </ul>
                 </div>
             </div>
-        {% endfor %}
+        </div>
     </div>
+    {% endfor %}
+</div>
 
-    <!-- Incluye Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Incluye Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <script>
-        // Opcional: Ajusta el texto del botón "Ver Libros" cuando se muestra u oculta la lista
-        $('.ver-libros-btn').click(function() {
-            $(this).text(function(i, text) {
-                return text === "Ver Libros" ? "Ocultar Libros" : "Ver Libros";
-            });
+<script>
+    // Opcional: Ajusta el texto del botón "Ver Libros" cuando se muestra u oculta la lista
+    $('.ver-libros-btn').click(function() {
+        $(this).text(function(i, text) {
+            return text === "Ver Libros" ? "Ocultar Libros" : "Ver Libros";
         });
-    </script>
-    <button><a href="{% url 'libros:index' %}">Volver a libros</a></button>
+    });
+</script>
 {% endblock contenido %}

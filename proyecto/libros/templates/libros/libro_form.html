@@ -12,11 +12,13 @@
       {% endif %}
  {% endblock body_title %}
 
-{% block contenido %}
-   <form action="" method="post">
-    {% csrf_token %}
-    {{form}}
-    <button type="submit">Guardar</button>
-   </form>
-    <button><a href="{% url 'libros:lista_libros' %}">Volver</a></button>
- {% endblock contenido %}
+ {% block contenido %}
+ <form action="" method="post">
+  {% csrf_token %}
+  {{ form }}
+ </form>
+ <div style="margin-top: 10px;">
+       <a href="{% url 'libros:lista_libros' %}" class="btn btn-secondary btn-sm">Volver</a>
+      <button type="submit" class="btn btn-info btn-sm me-2">Guardar</button> 
+ </div>
+{% endblock contenido %}
