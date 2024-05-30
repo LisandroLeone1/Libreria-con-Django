@@ -25,7 +25,7 @@
                 <p class="fs-4 mb-0 font-weight-bold">{{ autor.nombre_autor }}</p>
                 <p class="card-text small"><strong>Nacionalidad:</strong> {{ autor.nacionalidad }}</p>
                 <p class="card-text small"><strong>Nacimiento:</strong> {{ autor.nacimiento }}</p>
-                <button class="btn btn-primary ver-libros-btn" type="button" data-toggle="collapse" data-target="#listaLibros{{ forloop.counter }}">Ver Libros</button>
+                <button class="btn btn-primary ver-libros-btn" type="button" data-toggle="collapse" data-target="#listaLibros{{ forloop.counter }}">Libros Disponibles</button>
                 <div id="listaLibros{{ forloop.counter }}" class="collapse">
                     <ul class="list-group mt-3">
                         {% if autor.libros.all %}
@@ -43,7 +43,6 @@
     {% endfor %}
 </div>
 
-<!-- Incluye Bootstrap JS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -52,7 +51,7 @@
     // Opcional: Ajusta el texto del botón "Ver Libros" cuando se muestra u oculta la lista
     $('.ver-libros-btn').click(function() {
         $(this).text(function(i, text) {
-            return text === "Ver Libros" ? "Ocultar Libros" : "Ver Libros";
+            return text === "Libros Disponibles" ? "Ocultar Libros" : "Libros Disponibles";
         });
     });
 </script>
