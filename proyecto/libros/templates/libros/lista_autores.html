@@ -17,9 +17,9 @@
             <div class="col-md-4 mb-4">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">{{ autor.nombre.nombre_autor }}</h5>
-                        <p class="card-text small">Nacionalidad: {{ autor.nombre.nacionalidad }}</p>
-                        <p class="card-text small">Nacimiento: {{ autor.nombre.nacimiento }}</p>
+                        <h5 class="card-title">{{ autor.nombre_autor }}</h5>
+                        <p class="card-text small">Nacionalidad: {{ autor.nacionalidad }}</p>
+                        <p class="card-text small">Nacimiento: {{ autor.nacimiento }}</p>
                         <button class="btn btn-primary ver-libros-btn" type="button" data-toggle="collapse" data-target="#listaLibros{{ forloop.counter }}">Ver Libros</button>
                         <ul id="listaLibros{{ forloop.counter }}" class="list-unstyled collapse">
                             {% if autor.libros.all %}
