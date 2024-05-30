@@ -16,6 +16,7 @@
     <link rel="icon" type="image/x-icon" href="{% static 'core/assets/favicon.ico' %}" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{% static 'core/css/styles.css' %}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-3Pw9I7IunmFegxvMzw9n89Fzsgj6O7ae9aLHc/9l2pV5Jb3IhkuXBRvm8wjXZMXv5oT3ix0w7MtkapwzECIeXA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -25,11 +26,10 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'core:index' %}">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Nosotros</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'libros:lista_libros' %}">Libros</a></li>
-                    {% if user.is_authenticated %}
-                    
                     <li class="nav-item"><a class="nav-link" href="{% url 'libros:lista_autores' %}">Autores</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'libros:nosotros' %}">Nosotros</a></li>
+                    {% if user.is_authenticated %}
                     <li class="nav-item">
                         <form action="{% url 'core:logout' %}" method="post">
                             {% csrf_token %}
@@ -39,9 +39,7 @@
                         
                     {% else %}
                     <li class="nav-item"><a class="nav-link" href="{% url 'core:login' %}">Login</a></li>
-                    {% endif %}
-
-                    
+                    {% endif %}   
                 </ul>
             </div>
         </div>

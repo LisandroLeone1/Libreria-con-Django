@@ -5,8 +5,8 @@ from libros.forms import LibroForms
 from django.views.generic import DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 
-def index(request):
-    return render(request,"libros/index.html")
+def Nosotros(request):
+    return render(request,"libros/nosotros.html")
 
 def lista_libros(request):
     busqueda = request.GET.get("busqueda", None)

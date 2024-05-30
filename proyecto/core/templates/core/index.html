@@ -6,7 +6,7 @@
  {% endblock titulo %}
  
  {% block body_title %}
-        Inicio
+        Libreria Leone
  {% endblock body_title %}
 
  {% block contenido %}
@@ -25,22 +25,21 @@
             <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0"
                  src="{% static 'core/img/82162.webp' %}" alt="..." /></div>
             <div class="col-lg-5">
-                <h1 class="font-weight-light">Catalogo</h1>
-                <p>Somos una librería tradicional de la ciudad de Rosario con mas de 25 años de trayectoria. Nos Iniciamos en un pequeño local a metros del actual. Vendíamos libros usados, luego incorporamos ofertas y tambien novedades editoriales.</p>
-                <a class="btn btn-primary" href="#!">WhatsApp</a>
+                <h2 class="font-weight-light">Catalogo</h2>
+                <p>Nuestra libreria dispone de un amplio catalogo de libros, de toda variedad de generos, editoriales y autores. En nuestro catagalogo podes realizar busquedas tanto por nombre del libro como por el autor. Podes realizar compras de forma online o presencial.</p>
+                <a class="btn btn-primary" href="{% url 'libros:lista_libros' %}">Ir Al Catalogo</a>
             </div>
         </div>
-        <!-- Call to Action-->
-        <div class="card text-white bg-secondary my-5 py-4 text-center">
-            <div class="card-body"><p class="text-white m-0">This call to action card is a great place to showcase some important information or display a clever tagline!</p></div>
-        </div>
+
         <!-- Content Row-->
         <div class="row gx-4 gx-lg-5">
             <div class="col-md-4 mb-5">
                 <div class="card h-100">
                     <div class="card-body">
                         <h2 class="card-title">Redes Sociales</h2>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+                        <a href="#" class="btn btn-primary btn-sm"><i class="fab fa-facebook"></i> Facebook</a>
+                        <a href="#" class="btn btn-primary btn-sm"><i class="fab fa-instagram"></i> Instagram</a>
+                        <a href="#" class="btn btn-primary btn-sm"><i class="fab fa-twitter"></i> Twitter</a>
                     </div>
                     <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
                 </div>
