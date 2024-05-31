@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+  
+{% block titulo %}
+    Lista de Libros
+{% endblock titulo %}
+
+{% block body_title %}
+    Detalle De La Venta
+{% endblock body_title %}
+
+{% block contenido %}
+    <div class="container">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <p class="fs-4 mb-0 font-weight-bold">{{venta.vendedor.usuario.username}}</p>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item fs-6"><span class="font-weight-bold">Autor:</span> {{venta.libro.libro_nombre}}</li>
+                    <li class="list-group-item fs-6"><span class="font-weight-bold">Año:</span> {{venta.cantidad}}</li>
+                    <li class="list-group-item fs-6"><span class="font-weight-bold">Editorial:</span> {{venta.precio_total}}</li>
+                    <li class="list-group-item fs-6"><span class="font-weight-bold">Género:</span> {{venta.fecha_venta}}</li>
+                </ul>
+            </li>
+        </ul>
+        <a href="{% url 'libros:lista_libros' %}" class="btn btn-secondary mt-3">Volver</a>
+    </div>
+{% endblock contenido %}

@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+   
+{% block titulo %}
+    Agregar libro
+ {% endblock titulo %}
+
+ {% block body_title %}
+      {% if form.instance.pk %}
+       Editar Venta
+      {% else %}
+      Agregar Nueva Venta
+      {% endif %}
+ {% endblock body_title %}
+
+ {% block contenido %}
+ <form action="" method="post">
+  {% csrf_token %}
+  {{ form }}
+ </form>
+ <div style="margin-top: 10px;">
+       <a href="{% url 'libros:lista_libros' %}" class="btn btn-secondary btn-sm">Volver</a>
+      <button type="submit" class="btn btn-info btn-sm me-2">Guardar</button> 
+ </div>
+{% endblock contenido %}
