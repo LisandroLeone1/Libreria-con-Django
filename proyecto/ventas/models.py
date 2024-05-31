@@ -31,3 +31,9 @@ class Venta(models.Model):
     def save(self, *args, **kwargs):
         self.precio_total = self.libro.precio * self.cantidad
         super().save(*args, **kwargs)
+
+
+    def resta(self, *args, **kwargs):
+        self.libro.unidades -= self.cantidad
+        self.libro.unidades.save()
+        super().save(*args, **kwargs)
