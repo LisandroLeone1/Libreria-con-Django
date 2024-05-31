@@ -23,7 +23,7 @@ class VentasList(ListView):
 class VentasCreate(CreateView):
     model = Venta
     form_class = VentasForms
-    success_url = reverse_lazy("venta:venta_list")
+    success_url = reverse_lazy("ventas:ventas_lista")
 
 
 class VentasDetail(DetailView):
@@ -33,9 +33,9 @@ class VentasDetail(DetailView):
 class VentasUpdate(UpdateView):
     model = Venta
     form_class = VentasForms
-    success_url = reverse_lazy("venta:venta_list")
+    success_url = reverse_lazy("ventas:ventas_lista")
 
 
-class ProductoDelete(DeleteView):
+class VentasDelete(DeleteView):
     model = Venta
-    success_url = reverse_lazy("venta:venta_list")
+    success_url = reverse_lazy("ventas:ventas_lista")
