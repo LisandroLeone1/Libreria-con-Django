@@ -13,6 +13,7 @@
      
     </title>
     <!-- Favicon-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" type="image/x-icon" href="{% static 'core/assets/favicon.ico' %}" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{% static 'core/css/styles.css' %}" rel="stylesheet" />
@@ -35,7 +36,8 @@
                             {% csrf_token %}
                             <button type="submit" class="btn btn-dark ">Logout</button>
                         </form>
-                    <li class="nav-item bg-primary"><a class="nav-link" href="#">{{ user.username }}</a></li>
+                    <li class="nav-item bg-secondary"><a class="nav-link" href="#">{{ user.username }}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'ventas:ventas_lista' %}">Ventas</a></li>
                         
                     {% else %}
                     <li class="nav-item"><a class="nav-link" href="{% url 'core:login' %}">Login</a></li>
@@ -48,18 +50,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <h1 class="display-4 text-center">
-        {% block body_title %}
-            
-        {% endblock body_title %}
-    </h1>
-    
+
+    <div class="container px-4 py-lg-4">
+        <div class="row align-items-center my-1">
+            <h1 class="display-4 text-center mb-4 bg-dark text-white ">
+                {% block body_title %}
+                {% endblock body_title %}
+            </h1>
+        </div>
+        {% block content %}
+        {% endblock content %}
+    </div>
     
 
     {% block contenido %}
     {% endblock contenido %}
-     <!-- Footer-->
-     <footer class="py-3 bg-dark fixed-bottom">
+
+    <footer class="py-3 bg-dark fixed-bottom" style="bottom: 0; width: 100%;">
         <div class="container px-4 px-lg-5">
             <p class="m-0 text-center text-white small">Copyright &copy; Libreria sitio web</p>
         </div>

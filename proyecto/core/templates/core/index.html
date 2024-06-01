@@ -12,22 +12,38 @@
  {% block contenido %}
     <!-- Page Content-->
     <div class="container px-4 px-lg-5">
-
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="text-center">
         {% if user.is_authenticated %}
-            <p class = "text-info"> ¡Bienvenido! {{user.username}}</p>
+            <p class = "font-weight-bold"> ¡Bienvenido! {{user.username}}</p>
         {% endif %}
 
         {% if mensaje %}
-        <p class = "text-info"> {{mensaje}} ¡Bienvenido!</p>
+        <p class="font-weight-bold"> {{mensaje}} ¡Bienvenido!</p>
         {% endif %}
+                </div>
+             </div>
+           </div>
+        </div>
         <!-- Heading Row-->
-        <div class="row gx-4 gx-lg-5 align-items-center my-5">
-            <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0"
-                 src="{% static 'core/img/82162.webp' %}" alt="..." /></div>
-            <div class="col-lg-5">
-                <h2 class="font-weight-light">Catalogo</h2>
-                <p>Nuestra libreria dispone de un amplio catalogo de libros, de toda variedad de generos, editoriales y autores. En nuestro catagalogo podes realizar busquedas tanto por nombre del libro como por el autor. Podes realizar compras de forma online o presencial.</p>
-                <a class="btn btn-primary" href="{% url 'libros:lista_libros' %}">Ir Al Catalogo</a>
+        <div class="row gx-4 gx-lg-5 my-5">
+            <div class="col-lg-7 mb-4 mb-lg-0">
+                <img class="img-fluid rounded" src="{% static 'core/img/82162.webp' %}" alt="..." />
+            </div>
+            <div class="col-lg-5 text-center mt-lg-0 mt-4">
+                <h2 class="font-weight-light mt-0">Catálogo</h2>
+                <p class="mb-4">Nuestra librería dispone de un amplio catálogo de libros, de toda variedad de géneros, editoriales y autores. En nuestro catálogo podras realizar búsquedas tanto por nombre del libro como por el autor. Podras realizar compras de forma online o presencial.</p>
+                <a class="btn btn-dark" href="{% url 'libros:lista_libros' %}">Ir Al Catálogo</a>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <h2 class="font-weight-light mt-0">Autores</h2>
+                <p class="mb-4">Aqui podras ver la amplia lista de autores y los libros que disponemos de cada uno de ellos. Disponemos de toda variedad de autores clasicos, asi como los mejores escritores contemporaneos.</p>
+                <a class="btn btn-dark" href="{% url 'libros:lista_autores' %}">Ir A Autores</a>
             </div>
         </div>
 
@@ -36,30 +52,66 @@
             <div class="col-md-4 mb-5">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h2 class="card-title">Redes Sociales</h2>
-                        <a href="#" class="btn btn-primary btn-sm"><i class="fab fa-facebook"></i> Facebook</a>
-                        <a href="#" class="btn btn-primary btn-sm"><i class="fab fa-instagram"></i> Instagram</a>
-                        <a href="#" class="btn btn-primary btn-sm"><i class="fab fa-twitter"></i> Twitter</a>
+                        <h2 class="card-title text-center">Redes Sociales</h2>
+                        <br>
+                        <br>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-4 text-center">
+                                    <a href="#" class="fa fa-facebook fa-lg text-dark"></a>
+                                </div>
+                                <div class="col-4 text-center">
+                                    <a href="#" class="fa fa-twitter fa-lg text-dark"></a>
+                                </div>
+                                <div class="col-4 text-center">
+                                    <a href="#" class="fa fa-google-plus fa-lg text-dark"></a>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <div class="row">
+                                <div class="col-4 text-center">
+                                    <a href="#" class="fa fa-youtube fa-lg text-dark"></a>
+                                </div>
+                                <div class="col-4 text-center">
+                                    <a href="#" class="fa fa-linkedin fa-lg text-dark"></a>
+                                </div>
+                                <div class="col-4 text-center">
+                                    <a href="#" class="fa fa-instagram fa-lg text-dark"></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
                 </div>
             </div>
             <div class="col-md-4 mb-5">
                 <div class="card h-100">
                     <div class="card-body">
-                        <h2 class="card-title">Sucursales</h2>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod tenetur ex natus at dolorem enim! Nesciunt pariatur voluptatem sunt quam eaque, vel, non in id dolore voluptates quos eligendi labore.</p>
+                        <h2 class="card-title text-center">Sucursales</h2>
+                        <br>
+                        <ul>
+                            <li> 📍 Cordoba 1234. Rosario, Santa Fe, Argentina</li>
+                            <br>
+                            <li> 📍 San Lorenzo 3836. Rosario, Santa Fe, Argentina</li>
+                            <br>
+                            <li> 📍 Mitre 365. Rosario, Santa Fe, Argentina</li>
+                        </ul>
                     </div>
-                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
                 </div>
             </div>
             <div class="col-md-4 mb-5">
                 <div class="card h-100">
                     <div class="card-body">
                         <h2 class="card-title">Contacto</h2>
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem magni quas ex numquam, maxime minus quam molestias corporis quod, ea minima accusamus.</p>
+                        <br>
+                        <br>
+                        <ul>
+                            <li> ☎️ 3416893209</li>
+                            <br>
+                            <li> 📧 librerialeone@gmail.com</li>
+                            <br>
+                        </ul>
                     </div>
-                    <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">More Info</a></div>
                 </div>
             </div>
         </div>

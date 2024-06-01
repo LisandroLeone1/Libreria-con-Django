@@ -9,7 +9,7 @@
 {% endblock body_title %}
 
 {% block contenido %}
-    <div class="container">
+    <div class="container contenido mb-5">
         <ul class="list-group">
             <li class="list-group-item">
                 <p class="fs-4 mb-0 font-weight-bold">{{libro.nombre_libro}}</p>
@@ -19,11 +19,17 @@
                     <li class="list-group-item fs-6"><span class="font-weight-bold">Editorial:</span> {{libro.editorial}}</li>
                     <li class="list-group-item fs-6"><span class="font-weight-bold">Género:</span> {{libro.genero}}</li>
                     <li class="list-group-item fs-6"><span class="font-weight-bold">Páginas:</span> {{libro.paginas}}</li>
+                    {% if libro.unidades %}
                     <li class="list-group-item fs-6"><span class="font-weight-bold">Unidades:</span> {{libro.unidades}}</li>
+                    {% else %}
+                    <li class="list-group-item fs-6"><span class="font-weight-bold">Unidades:</span> No Disponible</li>
+                    {% endif %}
+                    
                     <li class="list-group-item fs-6"><span class="font-weight-bold">Precio:</span> ${{libro.precio}}</li>
                 </ul>
             </li>
         </ul>
-        <a href="{% url 'libros:lista_libros' %}" class="btn btn-secondary mt-3">Volver</a>
+        <a href="{% url 'libros:lista_libros' %}" class="btn btn-dark mt-3">Volver</a>
     </div>
+    
 {% endblock contenido %}
