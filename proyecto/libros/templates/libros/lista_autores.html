@@ -25,11 +25,7 @@
                 <p class="fs-4 mb-0 font-weight-bold">{{ autor.nombre_autor }}</p>
                 <p class="card-text small"><strong>Nacionalidad:</strong> {{ autor.nacionalidad }}</p>
                 <p class="card-text small"><strong>Nacimiento:</strong> {{ autor.nacimiento }}</p>
-<<<<<<< HEAD
-                <button class="btn btn-primary ver-libros-btn" type="button" data-toggle="collapse" data-target="#listaLibros{{ forloop.counter }}">Libros Disponibles</button>
-=======
                 <button class="btn btn-dark  ver-libros-btn" type="button" data-toggle="collapse" data-target="#listaLibros{{ forloop.counter }}">Libros Disponibles</button>
->>>>>>> prueba
                 <div id="listaLibros{{ forloop.counter }}" class="collapse">
                     <ul class="list-group mt-3">
                         {% if autor.libros.all %}
