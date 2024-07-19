@@ -19,9 +19,9 @@ from django.urls import path, include
 #from config import views
 
 urlpatterns = [
+    path('',include("core.urls")),
     path('admin/', admin.site.urls),
     path('libros/',include("libros.urls")),
-    path('core/',include("core.urls")),
     path('ventas/',include("ventas.urls")),
     #path('saludo/', views.saludo),
     #path('nombre/<nombre>/<apellido>', views.nombre),
